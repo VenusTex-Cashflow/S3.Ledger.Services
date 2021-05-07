@@ -1,2 +1,2 @@
-# t3.s3ledger.services
+# S3 Ledger Services - REST API
 S3Ledger service repository
