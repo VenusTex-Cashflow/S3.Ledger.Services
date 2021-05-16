@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 using T3.S3Ledger.Api.Data.Repository.Interface;
 using T3.S3Ledger.Api.Models;
@@ -36,7 +37,7 @@ namespace T3.S3Ledger.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetInvoice(long id)
         {
-            var invoice = await _unitOfWork.Invoice.GetFirstOrDefaultAsync(i => i.Id == id, includeProperties: "Customer");
+            var invoice = await _unitOfWork.Invoice.GetFirstOrDefaultAsync(i => i.Id == id);
 
             if (invoice == null)
             {
@@ -54,10 +55,18 @@ namespace T3.S3Ledger.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
         public async Task<ActionResult<long>> CreateInvoice(InvoiceModel invoiceModel)
         {
-            var invoice = _mapper.Map<Data.Entities.Invoice>(invoiceModel);
-            await _unitOfWork.Invoice.AddAsync(invoice);
-            await _unitOfWork.SaveAsync();
-            return CreatedAtAction("CreateInvoice", invoice.Id);
+            try
+            {
+                var invoice = _mapper.Map<Data.Entities.Invoice>(invoiceModel);
+                await _unitOfWork.Invoice.AddAsync(invoice);
+                await _unitOfWork.SaveAsync();
+                return CreatedAtAction("CreateInvoice", invoice.Id);
+            }
+            catch (Exception ex)
+            {
+                int x = 0;
+            }
+            return null;
         }
 
         [HttpPut]

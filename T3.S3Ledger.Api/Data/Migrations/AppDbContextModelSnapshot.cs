@@ -15,22 +15,7 @@ namespace T3.S3Ledger.Api.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
-                .HasAnnotation("ProductVersion", "5.0.3");
-
-            modelBuilder.Entity("InvoicePaymentReceipt", b =>
-                {
-                    b.Property<long>("InvoicesSettledId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("PaymentsId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("InvoicesSettledId", "PaymentsId");
-
-                    b.HasIndex("PaymentsId");
-
-                    b.ToTable("InvoicePaymentReceipt");
-                });
+                .HasAnnotation("ProductVersion", "5.0.4");
 
             modelBuilder.Entity("T3.S3Ledger.Api.Data.Entities.Address", b =>
                 {
@@ -47,16 +32,16 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<string>("Address3")
                         .HasColumnType("text");
 
-                    b.Property<int>("AddressType")
+                    b.Property<int?>("AddressType")
                         .HasColumnType("int");
 
                     b.Property<string>("City")
                         .HasColumnType("text");
 
-                    b.Property<int>("CountryId")
+                    b.Property<int?>("CountryId")
                         .HasColumnType("int");
 
-                    b.Property<long>("CustomerId")
+                    b.Property<long?>("CustomerId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("State")
@@ -77,7 +62,7 @@ namespace T3.S3Ledger.Api.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<decimal>("Amount")
+                    b.Property<decimal?>("Amount")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("BankName")
@@ -89,13 +74,13 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<int>("ChequeType")
                         .HasColumnType("int");
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<int?>("CreatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime");
 
-                    b.Property<long>("CustomerId")
+                    b.Property<long?>("CustomerId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("Date")
@@ -107,13 +92,13 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime");
 
-                    b.Property<bool>("IsBadCheque")
+                    b.Property<bool?>("IsBadCheque")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool?>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool>("IsRealized")
+                    b.Property<bool?>("IsRealized")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("ModifiedBy")
@@ -167,1891 +152,11 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Code = "AF",
-                            IDDCode = 93,
-                            ISOCode3 = "AFG",
-                            Name = "Afghanistan"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Code = "AL",
-                            IDDCode = 355,
-                            ISOCode3 = "ALB",
-                            Name = "Albania"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Code = "DZ",
-                            IDDCode = 213,
-                            ISOCode3 = "DZA",
-                            Name = "Algeria"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Code = "AS",
-                            IDDCode = 1684,
-                            ISOCode3 = "ASM",
-                            Name = "American Samoa"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Code = "AD",
-                            IDDCode = 376,
-                            ISOCode3 = "AND",
-                            Name = "Andorra"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Code = "AO",
-                            IDDCode = 244,
-                            ISOCode3 = "AGO",
-                            Name = "Angola"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Code = "AI",
-                            IDDCode = 1264,
-                            ISOCode3 = "AIA",
-                            Name = "Anguilla"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Code = "AQ",
-                            IDDCode = 0,
-                            Name = "Antarctica"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Code = "AG",
-                            IDDCode = 1268,
-                            ISOCode3 = "ATG",
-                            Name = "Antigua and Barbuda"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Code = "AR",
-                            IDDCode = 54,
-                            ISOCode3 = "ARG",
-                            Name = "Argentina"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Code = "AM",
-                            IDDCode = 374,
-                            ISOCode3 = "ARM",
-                            Name = "Armenia"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Code = "AW",
-                            IDDCode = 297,
-                            ISOCode3 = "ABW",
-                            Name = "Aruba"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Code = "AU",
-                            IDDCode = 61,
-                            ISOCode3 = "AUS",
-                            Name = "Australia"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Code = "AT",
-                            IDDCode = 43,
-                            ISOCode3 = "AUT",
-                            Name = "Austria"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Code = "AZ",
-                            IDDCode = 994,
-                            ISOCode3 = "AZE",
-                            Name = "Azerbaijan"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Code = "BS",
-                            IDDCode = 1242,
-                            ISOCode3 = "BHS",
-                            Name = "Bahamas"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Code = "BH",
-                            IDDCode = 973,
-                            ISOCode3 = "BHR",
-                            Name = "Bahrain"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Code = "BD",
-                            IDDCode = 880,
-                            ISOCode3 = "BGD",
-                            Name = "Bangladesh"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            Code = "BB",
-                            IDDCode = 1246,
-                            ISOCode3 = "BRB",
-                            Name = "Barbados"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            Code = "BY",
-                            IDDCode = 375,
-                            ISOCode3 = "BLR",
-                            Name = "Belarus"
-                        },
-                        new
-                        {
-                            Id = 21,
-                            Code = "BE",
-                            IDDCode = 32,
-                            ISOCode3 = "BEL",
-                            Name = "Belgium"
-                        },
-                        new
-                        {
-                            Id = 22,
-                            Code = "BZ",
-                            IDDCode = 501,
-                            ISOCode3 = "BLZ",
-                            Name = "Belize"
-                        },
-                        new
-                        {
-                            Id = 23,
-                            Code = "BJ",
-                            IDDCode = 229,
-                            ISOCode3 = "BEN",
-                            Name = "Benin"
-                        },
-                        new
-                        {
-                            Id = 24,
-                            Code = "BM",
-                            IDDCode = 1441,
-                            ISOCode3 = "BMU",
-                            Name = "Bermuda"
-                        },
-                        new
-                        {
-                            Id = 25,
-                            Code = "BT",
-                            IDDCode = 975,
-                            ISOCode3 = "BTN",
-                            Name = "Bhutan"
-                        },
-                        new
-                        {
-                            Id = 26,
-                            Code = "BO",
-                            IDDCode = 591,
-                            ISOCode3 = "BOL",
-                            Name = "Bolivia"
-                        },
-                        new
-                        {
-                            Id = 27,
-                            Code = "BA",
-                            IDDCode = 387,
-                            ISOCode3 = "BIH",
-                            Name = "Bosnia and Herzegovina"
-                        },
-                        new
-                        {
-                            Id = 28,
-                            Code = "BW",
-                            IDDCode = 267,
-                            ISOCode3 = "BWA",
-                            Name = "Botswana"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            Code = "BV",
-                            IDDCode = 0,
-                            Name = "Bouvet Island"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            Code = "BR",
-                            IDDCode = 55,
-                            ISOCode3 = "BRA",
-                            Name = "Brazil"
-                        },
-                        new
-                        {
-                            Id = 31,
-                            Code = "IO",
-                            IDDCode = 246,
-                            Name = "British Indian Ocean Territory"
-                        },
-                        new
-                        {
-                            Id = 32,
-                            Code = "BN",
-                            IDDCode = 673,
-                            ISOCode3 = "BRN",
-                            Name = "Brunei Darussalam"
-                        },
-                        new
-                        {
-                            Id = 33,
-                            Code = "BG",
-                            IDDCode = 359,
-                            ISOCode3 = "BGR",
-                            Name = "Bulgaria"
-                        },
-                        new
-                        {
-                            Id = 34,
-                            Code = "BF",
-                            IDDCode = 226,
-                            ISOCode3 = "BFA",
-                            Name = "Burkina Faso"
-                        },
-                        new
-                        {
-                            Id = 35,
-                            Code = "BI",
-                            IDDCode = 257,
-                            ISOCode3 = "BDI",
-                            Name = "Burundi"
-                        },
-                        new
-                        {
-                            Id = 36,
-                            Code = "KH",
-                            IDDCode = 855,
-                            ISOCode3 = "KHM",
-                            Name = "Cambodia"
-                        },
-                        new
-                        {
-                            Id = 37,
-                            Code = "CM",
-                            IDDCode = 237,
-                            ISOCode3 = "CMR",
-                            Name = "Cameroon"
-                        },
-                        new
-                        {
-                            Id = 38,
-                            Code = "CA",
-                            IDDCode = 1,
-                            ISOCode3 = "CAN",
-                            Name = "Canada"
-                        },
-                        new
-                        {
-                            Id = 39,
-                            Code = "CV",
-                            IDDCode = 238,
-                            ISOCode3 = "CPV",
-                            Name = "Cape Verde"
-                        },
-                        new
-                        {
-                            Id = 40,
-                            Code = "KY",
-                            IDDCode = 1345,
-                            ISOCode3 = "CYM",
-                            Name = "Cayman Islands"
-                        },
-                        new
-                        {
-                            Id = 41,
-                            Code = "CF",
-                            IDDCode = 236,
-                            ISOCode3 = "CAF",
-                            Name = "Central African Republic"
-                        },
-                        new
-                        {
-                            Id = 42,
-                            Code = "TD",
-                            IDDCode = 235,
-                            ISOCode3 = "TCD",
-                            Name = "Chad"
-                        },
-                        new
-                        {
-                            Id = 43,
-                            Code = "CL",
-                            IDDCode = 56,
-                            ISOCode3 = "CHL",
-                            Name = "Chile"
-                        },
-                        new
-                        {
-                            Id = 44,
-                            Code = "CN",
-                            IDDCode = 86,
-                            ISOCode3 = "CHN",
-                            Name = "China"
-                        },
-                        new
-                        {
-                            Id = 45,
-                            Code = "CX",
-                            IDDCode = 61,
-                            Name = "Christmas Island"
-                        },
-                        new
-                        {
-                            Id = 46,
-                            Code = "CC",
-                            IDDCode = 672,
-                            Name = "Cocos Keeling Islands"
-                        },
-                        new
-                        {
-                            Id = 47,
-                            Code = "CO",
-                            IDDCode = 57,
-                            ISOCode3 = "COL",
-                            Name = "Colombia"
-                        },
-                        new
-                        {
-                            Id = 48,
-                            Code = "KM",
-                            IDDCode = 269,
-                            ISOCode3 = "COM",
-                            Name = "Comoros"
-                        },
-                        new
-                        {
-                            Id = 49,
-                            Code = "CG",
-                            IDDCode = 242,
-                            ISOCode3 = "COG",
-                            Name = "Congo"
-                        },
-                        new
-                        {
-                            Id = 50,
-                            Code = "CD",
-                            ISOCode3 = "COD",
-                            Name = "THE DEMOCRATIC REPUBLIC OF THE CONGO"
-                        },
-                        new
-                        {
-                            Id = 51,
-                            Code = "CK",
-                            IDDCode = 682,
-                            ISOCode3 = "COK",
-                            Name = "Cook Islands"
-                        },
-                        new
-                        {
-                            Id = 52,
-                            Code = "CR",
-                            IDDCode = 506,
-                            ISOCode3 = "CRI",
-                            Name = "Costa Rica"
-                        },
-                        new
-                        {
-                            Id = 53,
-                            Code = "CI",
-                            IDDCode = 225,
-                            ISOCode3 = "CIV",
-                            Name = "Cote D'Ivoire"
-                        },
-                        new
-                        {
-                            Id = 54,
-                            Code = "HR",
-                            IDDCode = 385,
-                            ISOCode3 = "HRV",
-                            Name = "Croatia"
-                        },
-                        new
-                        {
-                            Id = 55,
-                            Code = "CU",
-                            IDDCode = 53,
-                            ISOCode3 = "CUB",
-                            Name = "Cuba"
-                        },
-                        new
-                        {
-                            Id = 56,
-                            Code = "CY",
-                            IDDCode = 357,
-                            ISOCode3 = "CYP",
-                            Name = "Cyprus"
-                        },
-                        new
-                        {
-                            Id = 57,
-                            Code = "CZ",
-                            IDDCode = 420,
-                            ISOCode3 = "CZE",
-                            Name = "Czech Republic"
-                        },
-                        new
-                        {
-                            Id = 58,
-                            Code = "DK",
-                            IDDCode = 45,
-                            ISOCode3 = "DNK",
-                            Name = "Denmark"
-                        },
-                        new
-                        {
-                            Id = 59,
-                            Code = "DJ",
-                            IDDCode = 253,
-                            ISOCode3 = "DJI",
-                            Name = "Djibouti"
-                        },
-                        new
-                        {
-                            Id = 60,
-                            Code = "DM",
-                            IDDCode = 1767,
-                            ISOCode3 = "DMA",
-                            Name = "Dominica"
-                        },
-                        new
-                        {
-                            Id = 61,
-                            Code = "DO",
-                            IDDCode = 1809,
-                            ISOCode3 = "DOM",
-                            Name = "Dominican Republic"
-                        },
-                        new
-                        {
-                            Id = 62,
-                            Code = "EC",
-                            IDDCode = 593,
-                            ISOCode3 = "ECU",
-                            Name = "Ecuador"
-                        },
-                        new
-                        {
-                            Id = 63,
-                            Code = "EG",
-                            IDDCode = 20,
-                            ISOCode3 = "EGY",
-                            Name = "Egypt"
-                        },
-                        new
-                        {
-                            Id = 64,
-                            Code = "SV",
-                            IDDCode = 503,
-                            ISOCode3 = "SLV",
-                            Name = "El Salvador"
-                        },
-                        new
-                        {
-                            Id = 65,
-                            Code = "GQ",
-                            IDDCode = 240,
-                            ISOCode3 = "GNQ",
-                            Name = "Equatorial Guinea"
-                        },
-                        new
-                        {
-                            Id = 66,
-                            Code = "ER",
-                            IDDCode = 291,
-                            ISOCode3 = "ERI",
-                            Name = "Eritrea"
-                        },
-                        new
-                        {
-                            Id = 67,
-                            Code = "EE",
-                            IDDCode = 372,
-                            ISOCode3 = "EST",
-                            Name = "Estonia"
-                        },
-                        new
-                        {
-                            Id = 68,
-                            Code = "ET",
-                            IDDCode = 251,
-                            ISOCode3 = "ETH",
-                            Name = "Ethiopia"
-                        },
-                        new
-                        {
-                            Id = 69,
-                            Code = "FK",
-                            IDDCode = 500,
-                            ISOCode3 = "FLK",
-                            Name = "Falkland Islands Malvinas"
-                        },
-                        new
-                        {
-                            Id = 70,
-                            Code = "FO",
-                            IDDCode = 298,
-                            ISOCode3 = "FRO",
-                            Name = "Faroe Islands"
-                        },
-                        new
-                        {
-                            Id = 71,
-                            Code = "FJ",
-                            IDDCode = 679,
-                            ISOCode3 = "FJI",
-                            Name = "Fiji"
-                        },
-                        new
-                        {
-                            Id = 72,
-                            Code = "FI",
-                            IDDCode = 358,
-                            ISOCode3 = "FIN",
-                            Name = "Finland"
-                        },
-                        new
-                        {
-                            Id = 73,
-                            Code = "FR",
-                            IDDCode = 33,
-                            ISOCode3 = "FRA",
-                            Name = "France"
-                        },
-                        new
-                        {
-                            Id = 74,
-                            Code = "GF",
-                            IDDCode = 594,
-                            ISOCode3 = "GUF",
-                            Name = "French Guiana"
-                        },
-                        new
-                        {
-                            Id = 75,
-                            Code = "PF",
-                            IDDCode = 689,
-                            ISOCode3 = "PYF",
-                            Name = "French Polynesia"
-                        },
-                        new
-                        {
-                            Id = 76,
-                            Code = "TF",
-                            IDDCode = 0,
-                            Name = "French Southern Territories"
-                        },
-                        new
-                        {
-                            Id = 77,
-                            Code = "GA",
-                            IDDCode = 241,
-                            ISOCode3 = "GAB",
-                            Name = "Gabon"
-                        },
-                        new
-                        {
-                            Id = 78,
-                            Code = "GM",
-                            IDDCode = 220,
-                            ISOCode3 = "GMB",
-                            Name = "Gambia"
-                        },
-                        new
-                        {
-                            Id = 79,
-                            Code = "GE",
-                            IDDCode = 995,
-                            ISOCode3 = "GEO",
-                            Name = "Georgia"
-                        },
-                        new
-                        {
-                            Id = 80,
-                            Code = "DE",
-                            IDDCode = 49,
-                            ISOCode3 = "DEU",
-                            Name = "Germany"
-                        },
-                        new
-                        {
-                            Id = 81,
-                            Code = "GH",
-                            IDDCode = 233,
-                            ISOCode3 = "GHA",
-                            Name = "Ghana"
-                        },
-                        new
-                        {
-                            Id = 82,
-                            Code = "GI",
-                            IDDCode = 350,
-                            ISOCode3 = "GIB",
-                            Name = "Gibraltar"
-                        },
-                        new
-                        {
-                            Id = 83,
-                            Code = "GR",
-                            IDDCode = 30,
-                            ISOCode3 = "GRC",
-                            Name = "Greece"
-                        },
-                        new
-                        {
-                            Id = 84,
-                            Code = "GL",
-                            IDDCode = 299,
-                            ISOCode3 = "GRL",
-                            Name = "Greenland"
-                        },
-                        new
-                        {
-                            Id = 85,
-                            Code = "GD",
-                            IDDCode = 1473,
-                            ISOCode3 = "GRD",
-                            Name = "Grenada"
-                        },
-                        new
-                        {
-                            Id = 86,
-                            Code = "GP",
-                            IDDCode = 590,
-                            ISOCode3 = "GLP",
-                            Name = "Guadeloupe"
-                        },
-                        new
-                        {
-                            Id = 87,
-                            Code = "GU",
-                            IDDCode = 1671,
-                            ISOCode3 = "GUM",
-                            Name = "Guam"
-                        },
-                        new
-                        {
-                            Id = 88,
-                            Code = "GT",
-                            IDDCode = 502,
-                            ISOCode3 = "GTM",
-                            Name = "Guatemala"
-                        },
-                        new
-                        {
-                            Id = 89,
-                            Code = "GN",
-                            IDDCode = 224,
-                            ISOCode3 = "GIN",
-                            Name = "Guinea"
-                        },
-                        new
-                        {
-                            Id = 90,
-                            Code = "GW",
-                            IDDCode = 245,
-                            ISOCode3 = "GNB",
-                            Name = "Guinea-Bissau"
-                        },
-                        new
-                        {
-                            Id = 91,
-                            Code = "GY",
-                            IDDCode = 592,
-                            ISOCode3 = "GUY",
-                            Name = "Guyana"
-                        },
-                        new
-                        {
-                            Id = 92,
-                            Code = "HT",
-                            IDDCode = 509,
-                            ISOCode3 = "HTI",
-                            Name = "Haiti"
-                        },
-                        new
-                        {
-                            Id = 93,
-                            Code = "HM",
-                            IDDCode = 0,
-                            Name = "Heard Island and Mcdonald Islands"
-                        },
-                        new
-                        {
-                            Id = 94,
-                            Code = "VA",
-                            IDDCode = 39,
-                            ISOCode3 = "VAT",
-                            Name = "Holy See Vatican City State"
-                        },
-                        new
-                        {
-                            Id = 95,
-                            Code = "HN",
-                            IDDCode = 504,
-                            ISOCode3 = "HND",
-                            Name = "Honduras"
-                        },
-                        new
-                        {
-                            Id = 96,
-                            Code = "HK",
-                            IDDCode = 852,
-                            ISOCode3 = "HKG",
-                            Name = "Hong Kong"
-                        },
-                        new
-                        {
-                            Id = 97,
-                            Code = "HU",
-                            IDDCode = 36,
-                            ISOCode3 = "HUN",
-                            Name = "Hungary"
-                        },
-                        new
-                        {
-                            Id = 98,
-                            Code = "IS",
-                            IDDCode = 354,
-                            ISOCode3 = "ISL",
-                            Name = "Iceland"
-                        },
-                        new
-                        {
-                            Id = 99,
-                            Code = "IN",
-                            IDDCode = 91,
-                            ISOCode3 = "IND",
-                            Name = "India"
-                        },
-                        new
-                        {
-                            Id = 100,
-                            Code = "ID",
-                            IDDCode = 62,
-                            ISOCode3 = "IDN",
-                            Name = "Indonesia"
-                        },
-                        new
-                        {
-                            Id = 101,
-                            Code = "IR",
-                            ISOCode3 = "IRN",
-                            Name = "ISLAMIC REPUBLIC OF"
-                        },
-                        new
-                        {
-                            Id = 102,
-                            Code = "IQ",
-                            IDDCode = 964,
-                            ISOCode3 = "IRQ",
-                            Name = "Iraq"
-                        },
-                        new
-                        {
-                            Id = 103,
-                            Code = "IE",
-                            IDDCode = 353,
-                            ISOCode3 = "IRL",
-                            Name = "Ireland"
-                        },
-                        new
-                        {
-                            Id = 104,
-                            Code = "IL",
-                            IDDCode = 972,
-                            ISOCode3 = "ISR",
-                            Name = "Israel"
-                        },
-                        new
-                        {
-                            Id = 105,
-                            Code = "IT",
-                            IDDCode = 39,
-                            ISOCode3 = "ITA",
-                            Name = "Italy"
-                        },
-                        new
-                        {
-                            Id = 106,
-                            Code = "JM",
-                            IDDCode = 1876,
-                            ISOCode3 = "JAM",
-                            Name = "Jamaica"
-                        },
-                        new
-                        {
-                            Id = 107,
-                            Code = "JP",
-                            IDDCode = 81,
-                            ISOCode3 = "JPN",
-                            Name = "Japan"
-                        },
-                        new
-                        {
-                            Id = 108,
-                            Code = "JO",
-                            IDDCode = 962,
-                            ISOCode3 = "JOR",
-                            Name = "Jordan"
-                        },
-                        new
-                        {
-                            Id = 109,
-                            Code = "KZ",
-                            IDDCode = 7,
-                            ISOCode3 = "KAZ",
-                            Name = "Kazakhstan"
-                        },
-                        new
-                        {
-                            Id = 110,
-                            Code = "KE",
-                            IDDCode = 254,
-                            ISOCode3 = "KEN",
-                            Name = "Kenya"
-                        },
-                        new
-                        {
-                            Id = 111,
-                            Code = "KI",
-                            IDDCode = 686,
-                            ISOCode3 = "KIR",
-                            Name = "Kiribati"
-                        },
-                        new
-                        {
-                            Id = 112,
-                            Code = "KP",
-                            ISOCode3 = "KOR",
-                            Name = "DEMOCRATIC PEOPLE'S REPUBLIC OF"
-                        },
-                        new
-                        {
-                            Id = 113,
-                            Code = "KR",
-                            ISOCode3 = "KOR",
-                            Name = "REPUBLIC OF KOREA"
-                        },
-                        new
-                        {
-                            Id = 114,
-                            Code = "KW",
-                            IDDCode = 965,
-                            ISOCode3 = "KWT",
-                            Name = "Kuwait"
-                        },
-                        new
-                        {
-                            Id = 115,
-                            Code = "KG",
-                            IDDCode = 996,
-                            ISOCode3 = "KGZ",
-                            Name = "Kyrgyzstan"
-                        },
-                        new
-                        {
-                            Id = 116,
-                            Code = "LA",
-                            IDDCode = 856,
-                            ISOCode3 = "LAO",
-                            Name = "Lao People's Democratic Republic"
-                        },
-                        new
-                        {
-                            Id = 117,
-                            Code = "LV",
-                            IDDCode = 371,
-                            ISOCode3 = "LVA",
-                            Name = "Latvia"
-                        },
-                        new
-                        {
-                            Id = 118,
-                            Code = "LB",
-                            IDDCode = 961,
-                            ISOCode3 = "LBN",
-                            Name = "Lebanon"
-                        },
-                        new
-                        {
-                            Id = 119,
-                            Code = "LS",
-                            IDDCode = 266,
-                            ISOCode3 = "LSO",
-                            Name = "Lesotho"
-                        },
-                        new
-                        {
-                            Id = 120,
-                            Code = "LR",
-                            IDDCode = 231,
-                            ISOCode3 = "LBR",
-                            Name = "Liberia"
-                        },
-                        new
-                        {
-                            Id = 121,
-                            Code = "LY",
-                            IDDCode = 218,
-                            ISOCode3 = "LBY",
-                            Name = "Libyan Arab Jamahiriya"
-                        },
-                        new
-                        {
-                            Id = 122,
-                            Code = "LI",
-                            IDDCode = 423,
-                            ISOCode3 = "LIE",
-                            Name = "Liechtenstein"
-                        },
-                        new
-                        {
-                            Id = 123,
-                            Code = "LT",
-                            IDDCode = 370,
-                            ISOCode3 = "LTU",
-                            Name = "Lithuania"
-                        },
-                        new
-                        {
-                            Id = 124,
-                            Code = "LU",
-                            IDDCode = 352,
-                            ISOCode3 = "LUX",
-                            Name = "Luxembourg"
-                        },
-                        new
-                        {
-                            Id = 125,
-                            Code = "MO",
-                            IDDCode = 853,
-                            ISOCode3 = "MAC",
-                            Name = "Macao"
-                        },
-                        new
-                        {
-                            Id = 126,
-                            Code = "MK",
-                            ISOCode3 = "MKD",
-                            Name = "THE FORMER YUGOSLAV REPUBLIC OF"
-                        },
-                        new
-                        {
-                            Id = 127,
-                            Code = "MG",
-                            IDDCode = 261,
-                            ISOCode3 = "MDG",
-                            Name = "Madagascar"
-                        },
-                        new
-                        {
-                            Id = 128,
-                            Code = "MW",
-                            IDDCode = 265,
-                            ISOCode3 = "MWI",
-                            Name = "Malawi"
-                        },
-                        new
-                        {
-                            Id = 129,
-                            Code = "MY",
-                            IDDCode = 60,
-                            ISOCode3 = "MYS",
-                            Name = "Malaysia"
-                        },
-                        new
-                        {
-                            Id = 130,
-                            Code = "MV",
-                            IDDCode = 960,
-                            ISOCode3 = "MDV",
-                            Name = "Maldives"
-                        },
-                        new
-                        {
-                            Id = 131,
-                            Code = "ML",
-                            IDDCode = 223,
-                            ISOCode3 = "MLI",
-                            Name = "Mali"
-                        },
-                        new
-                        {
-                            Id = 132,
-                            Code = "MT",
-                            IDDCode = 356,
-                            ISOCode3 = "MLT",
-                            Name = "Malta"
-                        },
-                        new
-                        {
-                            Id = 133,
-                            Code = "MH",
-                            IDDCode = 692,
-                            ISOCode3 = "MHL",
-                            Name = "Marshall Islands"
-                        },
-                        new
-                        {
-                            Id = 134,
-                            Code = "MQ",
-                            IDDCode = 596,
-                            ISOCode3 = "MTQ",
-                            Name = "Martinique"
-                        },
-                        new
-                        {
-                            Id = 135,
-                            Code = "MR",
-                            IDDCode = 222,
-                            ISOCode3 = "MRT",
-                            Name = "Mauritania"
-                        },
-                        new
-                        {
-                            Id = 136,
-                            Code = "MU",
-                            IDDCode = 230,
-                            ISOCode3 = "MUS",
-                            Name = "Mauritius"
-                        },
-                        new
-                        {
-                            Id = 137,
-                            Code = "YT",
-                            IDDCode = 269,
-                            Name = "Mayotte"
-                        },
-                        new
-                        {
-                            Id = 138,
-                            Code = "MX",
-                            IDDCode = 52,
-                            ISOCode3 = "MEX",
-                            Name = "Mexico"
-                        },
-                        new
-                        {
-                            Id = 139,
-                            Code = "FM",
-                            ISOCode3 = "FSM",
-                            Name = "Micronesia"
-                        },
-                        new
-                        {
-                            Id = 140,
-                            Code = "MD",
-                            ISOCode3 = "MDA",
-                            Name = "Moldova"
-                        },
-                        new
-                        {
-                            Id = 141,
-                            Code = "MC",
-                            IDDCode = 377,
-                            ISOCode3 = "MCO",
-                            Name = "Monaco"
-                        },
-                        new
-                        {
-                            Id = 142,
-                            Code = "MN",
-                            IDDCode = 976,
-                            ISOCode3 = "MNG",
-                            Name = "Mongolia"
-                        },
-                        new
-                        {
-                            Id = 143,
-                            Code = "MS",
-                            IDDCode = 1664,
-                            ISOCode3 = "MSR",
-                            Name = "Montserrat"
-                        },
-                        new
-                        {
-                            Id = 144,
-                            Code = "MA",
-                            IDDCode = 212,
-                            ISOCode3 = "MAR",
-                            Name = "Morocco"
-                        },
-                        new
-                        {
-                            Id = 145,
-                            Code = "MZ",
-                            IDDCode = 258,
-                            ISOCode3 = "MOZ",
-                            Name = "Mozambique"
-                        },
-                        new
-                        {
-                            Id = 146,
-                            Code = "MM",
-                            IDDCode = 95,
-                            ISOCode3 = "MMR",
-                            Name = "Myanmar"
-                        },
-                        new
-                        {
-                            Id = 147,
-                            Code = "NA",
-                            IDDCode = 264,
-                            ISOCode3 = "NAM",
-                            Name = "Namibia"
-                        },
-                        new
-                        {
-                            Id = 148,
-                            Code = "NR",
-                            IDDCode = 674,
-                            ISOCode3 = "NRU",
-                            Name = "Nauru"
-                        },
-                        new
-                        {
-                            Id = 149,
-                            Code = "NP",
-                            IDDCode = 977,
-                            ISOCode3 = "NPL",
-                            Name = "Nepal"
-                        },
-                        new
-                        {
-                            Id = 150,
-                            Code = "NL",
-                            IDDCode = 31,
-                            ISOCode3 = "NLD",
-                            Name = "Netherlands"
-                        },
-                        new
-                        {
-                            Id = 151,
-                            Code = "AN",
-                            IDDCode = 599,
-                            ISOCode3 = "ANT",
-                            Name = "Netherlands Antilles"
-                        },
-                        new
-                        {
-                            Id = 152,
-                            Code = "NC",
-                            IDDCode = 687,
-                            ISOCode3 = "NCL",
-                            Name = "New Caledonia"
-                        },
-                        new
-                        {
-                            Id = 153,
-                            Code = "NZ",
-                            IDDCode = 64,
-                            ISOCode3 = "NZL",
-                            Name = "New Zealand"
-                        },
-                        new
-                        {
-                            Id = 154,
-                            Code = "NI",
-                            IDDCode = 505,
-                            ISOCode3 = "NIC",
-                            Name = "Nicaragua"
-                        },
-                        new
-                        {
-                            Id = 155,
-                            Code = "NE",
-                            IDDCode = 227,
-                            ISOCode3 = "NER",
-                            Name = "Niger"
-                        },
-                        new
-                        {
-                            Id = 156,
-                            Code = "NG",
-                            IDDCode = 234,
-                            ISOCode3 = "NGA",
-                            Name = "Nigeria"
-                        },
-                        new
-                        {
-                            Id = 157,
-                            Code = "NU",
-                            IDDCode = 683,
-                            ISOCode3 = "NIU",
-                            Name = "Niue"
-                        },
-                        new
-                        {
-                            Id = 158,
-                            Code = "NF",
-                            IDDCode = 672,
-                            ISOCode3 = "NFK",
-                            Name = "Norfolk Island"
-                        },
-                        new
-                        {
-                            Id = 159,
-                            Code = "MP",
-                            IDDCode = 1670,
-                            ISOCode3 = "MNP",
-                            Name = "Northern Mariana Islands"
-                        },
-                        new
-                        {
-                            Id = 160,
-                            Code = "NO",
-                            IDDCode = 47,
-                            ISOCode3 = "NOR",
-                            Name = "Norway"
-                        },
-                        new
-                        {
-                            Id = 161,
-                            Code = "OM",
-                            IDDCode = 968,
-                            ISOCode3 = "OMN",
-                            Name = "Oman"
-                        },
-                        new
-                        {
-                            Id = 162,
-                            Code = "PK",
-                            IDDCode = 92,
-                            ISOCode3 = "PAK",
-                            Name = "Pakistan"
-                        },
-                        new
-                        {
-                            Id = 163,
-                            Code = "PW",
-                            IDDCode = 680,
-                            ISOCode3 = "PLW",
-                            Name = "Palau"
-                        },
-                        new
-                        {
-                            Id = 164,
-                            Code = "PS",
-                            ISOCode3 = "PLT",
-                            Name = "OCCUPIED Palestinian Territory "
-                        },
-                        new
-                        {
-                            Id = 165,
-                            Code = "PA",
-                            IDDCode = 507,
-                            ISOCode3 = "PAN",
-                            Name = "Panama"
-                        },
-                        new
-                        {
-                            Id = 166,
-                            Code = "PG",
-                            IDDCode = 675,
-                            ISOCode3 = "PNG",
-                            Name = "Papua New Guinea"
-                        },
-                        new
-                        {
-                            Id = 167,
-                            Code = "PY",
-                            IDDCode = 595,
-                            ISOCode3 = "PRY",
-                            Name = "Paraguay"
-                        },
-                        new
-                        {
-                            Id = 168,
-                            Code = "PE",
-                            IDDCode = 51,
-                            ISOCode3 = "PER",
-                            Name = "Peru"
-                        },
-                        new
-                        {
-                            Id = 169,
-                            Code = "PH",
-                            IDDCode = 63,
-                            ISOCode3 = "PHL",
-                            Name = "Philippines"
-                        },
-                        new
-                        {
-                            Id = 170,
-                            Code = "PN",
-                            IDDCode = 0,
-                            ISOCode3 = "PCN",
-                            Name = "Pitcairn"
-                        },
-                        new
-                        {
-                            Id = 171,
-                            Code = "PL",
-                            IDDCode = 48,
-                            ISOCode3 = "POL",
-                            Name = "Poland"
-                        },
-                        new
-                        {
-                            Id = 172,
-                            Code = "PT",
-                            IDDCode = 351,
-                            ISOCode3 = "PRT",
-                            Name = "Portugal"
-                        },
-                        new
-                        {
-                            Id = 173,
-                            Code = "PR",
-                            IDDCode = 1787,
-                            ISOCode3 = "PRI",
-                            Name = "Puerto Rico"
-                        },
-                        new
-                        {
-                            Id = 174,
-                            Code = "QA",
-                            IDDCode = 974,
-                            ISOCode3 = "QAT",
-                            Name = "Qatar"
-                        },
-                        new
-                        {
-                            Id = 175,
-                            Code = "RE",
-                            IDDCode = 262,
-                            ISOCode3 = "REU",
-                            Name = "Reunion"
-                        },
-                        new
-                        {
-                            Id = 176,
-                            Code = "RO",
-                            IDDCode = 40,
-                            ISOCode3 = "ROM",
-                            Name = "Romania"
-                        },
-                        new
-                        {
-                            Id = 177,
-                            Code = "RU",
-                            IDDCode = 70,
-                            ISOCode3 = "RUS",
-                            Name = "Russian Federation"
-                        },
-                        new
-                        {
-                            Id = 178,
-                            Code = "RW",
-                            IDDCode = 250,
-                            ISOCode3 = "RWA",
-                            Name = "Rwanda"
-                        },
-                        new
-                        {
-                            Id = 179,
-                            Code = "SH",
-                            IDDCode = 290,
-                            ISOCode3 = "SHN",
-                            Name = "Saint Helena"
-                        },
-                        new
-                        {
-                            Id = 180,
-                            Code = "KN",
-                            IDDCode = 1869,
-                            ISOCode3 = "KNA",
-                            Name = "Saint Kitts and Nevis"
-                        },
-                        new
-                        {
-                            Id = 181,
-                            Code = "LC",
-                            IDDCode = 1758,
-                            ISOCode3 = "LCA",
-                            Name = "Saint Lucia"
-                        },
-                        new
-                        {
-                            Id = 182,
-                            Code = "PM",
-                            IDDCode = 508,
-                            ISOCode3 = "SPM",
-                            Name = "Saint Pierre and Miquelon"
-                        },
-                        new
-                        {
-                            Id = 183,
-                            Code = "VC",
-                            IDDCode = 1784,
-                            ISOCode3 = "VCT",
-                            Name = "Saint Vincent and the Grenadines"
-                        },
-                        new
-                        {
-                            Id = 184,
-                            Code = "WS",
-                            IDDCode = 684,
-                            ISOCode3 = "WSM",
-                            Name = "Samoa"
-                        },
-                        new
-                        {
-                            Id = 185,
-                            Code = "SM",
-                            IDDCode = 378,
-                            ISOCode3 = "SMR",
-                            Name = "San Marino"
-                        },
-                        new
-                        {
-                            Id = 186,
-                            Code = "ST",
-                            IDDCode = 239,
-                            ISOCode3 = "STP",
-                            Name = "Sao Tome and Principe"
-                        },
-                        new
-                        {
-                            Id = 187,
-                            Code = "SA",
-                            IDDCode = 966,
-                            ISOCode3 = "SAU",
-                            Name = "Saudi Arabia"
-                        },
-                        new
-                        {
-                            Id = 188,
-                            Code = "SN",
-                            IDDCode = 221,
-                            ISOCode3 = "SEN",
-                            Name = "Senegal"
-                        },
-                        new
-                        {
-                            Id = 189,
-                            Code = "CS",
-                            IDDCode = 381,
-                            Name = "Serbia and Montenegro"
-                        },
-                        new
-                        {
-                            Id = 190,
-                            Code = "SC",
-                            IDDCode = 248,
-                            ISOCode3 = "SYC",
-                            Name = "Seychelles"
-                        },
-                        new
-                        {
-                            Id = 191,
-                            Code = "SL",
-                            IDDCode = 232,
-                            ISOCode3 = "SLE",
-                            Name = "Sierra Leone"
-                        },
-                        new
-                        {
-                            Id = 192,
-                            Code = "SG",
-                            IDDCode = 65,
-                            ISOCode3 = "SGP",
-                            Name = "Singapore"
-                        },
-                        new
-                        {
-                            Id = 193,
-                            Code = "SK",
-                            IDDCode = 421,
-                            ISOCode3 = "SVK",
-                            Name = "Slovakia"
-                        },
-                        new
-                        {
-                            Id = 194,
-                            Code = "SI",
-                            IDDCode = 386,
-                            ISOCode3 = "SVN",
-                            Name = "Slovenia"
-                        },
-                        new
-                        {
-                            Id = 195,
-                            Code = "SB",
-                            IDDCode = 677,
-                            ISOCode3 = "SLB",
-                            Name = "Solomon Islands"
-                        },
-                        new
-                        {
-                            Id = 196,
-                            Code = "SO",
-                            IDDCode = 252,
-                            ISOCode3 = "SOM",
-                            Name = "Somalia"
-                        },
-                        new
-                        {
-                            Id = 197,
-                            Code = "ZA",
-                            IDDCode = 27,
-                            ISOCode3 = "ZAF",
-                            Name = "South Africa"
-                        },
-                        new
-                        {
-                            Id = 198,
-                            Code = "GS",
-                            IDDCode = 0,
-                            Name = "South Georgia and the South Sandwich Islands"
-                        },
-                        new
-                        {
-                            Id = 199,
-                            Code = "ES",
-                            IDDCode = 34,
-                            ISOCode3 = "ESP",
-                            Name = "Spain"
-                        },
-                        new
-                        {
                             Id = 200,
                             Code = "LK",
                             IDDCode = 94,
                             ISOCode3 = "LKA",
                             Name = "Sri Lanka"
-                        },
-                        new
-                        {
-                            Id = 201,
-                            Code = "SD",
-                            IDDCode = 249,
-                            ISOCode3 = "SDN",
-                            Name = "Sudan"
-                        },
-                        new
-                        {
-                            Id = 202,
-                            Code = "SR",
-                            IDDCode = 597,
-                            ISOCode3 = "SUR",
-                            Name = "Suriname"
-                        },
-                        new
-                        {
-                            Id = 203,
-                            Code = "SJ",
-                            IDDCode = 47,
-                            ISOCode3 = "SJM",
-                            Name = "Svalbard and Jan Mayen"
-                        },
-                        new
-                        {
-                            Id = 204,
-                            Code = "SZ",
-                            IDDCode = 268,
-                            ISOCode3 = "SWZ",
-                            Name = "Swaziland"
-                        },
-                        new
-                        {
-                            Id = 205,
-                            Code = "SE",
-                            IDDCode = 46,
-                            ISOCode3 = "SWE",
-                            Name = "Sweden"
-                        },
-                        new
-                        {
-                            Id = 206,
-                            Code = "CH",
-                            IDDCode = 41,
-                            ISOCode3 = "CHE",
-                            Name = "Switzerland"
-                        },
-                        new
-                        {
-                            Id = 207,
-                            Code = "SY",
-                            IDDCode = 963,
-                            ISOCode3 = "SYR",
-                            Name = "Syrian Arab Republic"
-                        },
-                        new
-                        {
-                            Id = 208,
-                            Code = "TW",
-                            ISOCode3 = "TWN",
-                            Name = "PROVINCE OF CHINA TAI"
-                        },
-                        new
-                        {
-                            Id = 209,
-                            Code = "TJ",
-                            IDDCode = 992,
-                            ISOCode3 = "TJK",
-                            Name = "Tajikistan"
-                        },
-                        new
-                        {
-                            Id = 210,
-                            Code = "TZ",
-                            ISOCode3 = "TZA",
-                            Name = "UNITED REPUBLIC OF"
-                        },
-                        new
-                        {
-                            Id = 211,
-                            Code = "TH",
-                            IDDCode = 66,
-                            ISOCode3 = "THA",
-                            Name = "Thailand"
-                        },
-                        new
-                        {
-                            Id = 212,
-                            Code = "TL",
-                            IDDCode = 670,
-                            Name = "Timor-Leste"
-                        },
-                        new
-                        {
-                            Id = 213,
-                            Code = "TG",
-                            IDDCode = 228,
-                            ISOCode3 = "TGO",
-                            Name = "Togo"
-                        },
-                        new
-                        {
-                            Id = 214,
-                            Code = "TK",
-                            IDDCode = 690,
-                            ISOCode3 = "TKL",
-                            Name = "Tokelau"
-                        },
-                        new
-                        {
-                            Id = 215,
-                            Code = "TO",
-                            IDDCode = 676,
-                            ISOCode3 = "TON",
-                            Name = "Tonga"
-                        },
-                        new
-                        {
-                            Id = 216,
-                            Code = "TT",
-                            IDDCode = 1868,
-                            ISOCode3 = "TTO",
-                            Name = "Trinidad and Tobago"
-                        },
-                        new
-                        {
-                            Id = 217,
-                            Code = "TN",
-                            IDDCode = 216,
-                            ISOCode3 = "TUN",
-                            Name = "Tunisia"
-                        },
-                        new
-                        {
-                            Id = 218,
-                            Code = "TR",
-                            IDDCode = 90,
-                            ISOCode3 = "TUR",
-                            Name = "Turkey"
-                        },
-                        new
-                        {
-                            Id = 219,
-                            Code = "TM",
-                            IDDCode = 7370,
-                            ISOCode3 = "TKM",
-                            Name = "Turkmenistan"
-                        },
-                        new
-                        {
-                            Id = 220,
-                            Code = "TC",
-                            IDDCode = 1649,
-                            ISOCode3 = "TCA",
-                            Name = "Turks and Caicos Islands"
-                        },
-                        new
-                        {
-                            Id = 221,
-                            Code = "TV",
-                            IDDCode = 688,
-                            ISOCode3 = "TUV",
-                            Name = "Tuvalu"
-                        },
-                        new
-                        {
-                            Id = 222,
-                            Code = "UG",
-                            IDDCode = 256,
-                            ISOCode3 = "UGA",
-                            Name = "Uganda"
-                        },
-                        new
-                        {
-                            Id = 223,
-                            Code = "UA",
-                            IDDCode = 380,
-                            ISOCode3 = "UKR",
-                            Name = "Ukraine"
-                        },
-                        new
-                        {
-                            Id = 224,
-                            Code = "AE",
-                            IDDCode = 971,
-                            ISOCode3 = "ARE",
-                            Name = "United Arab Emirates"
-                        },
-                        new
-                        {
-                            Id = 225,
-                            Code = "GB",
-                            IDDCode = 44,
-                            ISOCode3 = "GBR",
-                            Name = "United Kingdom"
-                        },
-                        new
-                        {
-                            Id = 226,
-                            Code = "US",
-                            IDDCode = 1,
-                            ISOCode3 = "USA",
-                            Name = "United States"
-                        },
-                        new
-                        {
-                            Id = 227,
-                            Code = "UM",
-                            Name = "United States Minor Outlying Islands"
-                        },
-                        new
-                        {
-                            Id = 228,
-                            Code = "UY",
-                            IDDCode = 598,
-                            ISOCode3 = "URY",
-                            Name = "Uruguay"
-                        },
-                        new
-                        {
-                            Id = 229,
-                            Code = "UZ",
-                            IDDCode = 998,
-                            ISOCode3 = "UZB",
-                            Name = "Uzbekistan"
-                        },
-                        new
-                        {
-                            Id = 230,
-                            Code = "VU",
-                            IDDCode = 678,
-                            ISOCode3 = "VUT",
-                            Name = "Vanuatu"
-                        },
-                        new
-                        {
-                            Id = 231,
-                            Code = "VE",
-                            IDDCode = 58,
-                            ISOCode3 = "VEN",
-                            Name = "Venezuela"
-                        },
-                        new
-                        {
-                            Id = 232,
-                            Code = "VN",
-                            IDDCode = 84,
-                            ISOCode3 = "VNM",
-                            Name = "Viet Nam"
-                        },
-                        new
-                        {
-                            Id = 233,
-                            Code = "VG",
-                            ISOCode3 = "VRI",
-                            Name = "Virgin Islands"
-                        },
-                        new
-                        {
-                            Id = 234,
-                            Code = "VI",
-                            IDDCode = 1111,
-                            ISOCode3 = "VIR",
-                            Name = "U.S.Virgin Islands"
-                        },
-                        new
-                        {
-                            Id = 235,
-                            Code = "WF",
-                            IDDCode = 681,
-                            ISOCode3 = "WLF",
-                            Name = "Wallis and Futuna"
-                        },
-                        new
-                        {
-                            Id = 236,
-                            Code = "EH",
-                            IDDCode = 212,
-                            ISOCode3 = "ESH",
-                            Name = "Western Sahara"
-                        },
-                        new
-                        {
-                            Id = 237,
-                            Code = "YE",
-                            IDDCode = 967,
-                            ISOCode3 = "YEM",
-                            Name = "Yemen"
-                        },
-                        new
-                        {
-                            Id = 238,
-                            Code = "ZM",
-                            IDDCode = 260,
-                            ISOCode3 = "ZMB",
-                            Name = "Zambia"
-                        },
-                        new
-                        {
-                            Id = 239,
-                            Code = "ZW",
-                            IDDCode = 263,
-                            ISOCode3 = "ZWE",
-                            Name = "Zimbabwe"
                         });
                 });
 
@@ -2061,7 +166,7 @@ namespace T3.S3Ledger.Api.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<int>("BusinessType")
+                    b.Property<int?>("BusinessType")
                         .HasColumnType("int");
 
                     b.Property<string>("CompanyCode")
@@ -2072,13 +177,18 @@ namespace T3.S3Ledger.Api.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<int?>("CreatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime");
 
-                    b.Property<int>("CustomerType")
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int?>("CustomerType")
                         .HasColumnType("int");
 
                     b.Property<int?>("DeletedBy")
@@ -2090,11 +200,7 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("text");
 
-                    b.Property<string>("FirstName")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool?>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
@@ -2106,7 +212,6 @@ namespace T3.S3Ledger.Api.Data.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("MobileNumber")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
 
@@ -2127,7 +232,13 @@ namespace T3.S3Ledger.Api.Data.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
 
-                    b.Property<decimal>("TotalOutstandingAmount")
+                    b.Property<decimal?>("TotalAmountSettled")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<decimal?>("TotalInvoicedAmount")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<decimal?>("TotalOutstandingAmount")
                         .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("Id");
@@ -2146,10 +257,10 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<int?>("CreatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime");
 
                     b.Property<long>("CustomerId")
@@ -2161,19 +272,10 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime");
 
-                    b.Property<decimal>("DiscountAmount")
-                        .HasColumnType("decimal(18, 2)");
-
-                    b.Property<bool>("GoodsDelivered")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<DateTime?>("InvoiceDate")
+                    b.Property<DateTime>("InvoiceDate")
                         .HasColumnType("datetime");
 
-                    b.Property<int>("InvoiceStatus")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool?>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("ModifiedBy")
@@ -2185,25 +287,14 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<int>("OrganizationId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PaymentMethod")
-                        .HasColumnType("int");
-
                     b.Property<string>("ReferenceNumber")
                         .HasColumnType("text");
-
-                    b.Property<long>("SalesmanId")
-                        .HasColumnType("bigint");
-
-                    b.Property<decimal>("TaxAmount")
-                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("OrganizationId");
-
-                    b.HasIndex("SalesmanId");
 
                     b.ToTable("Invoice");
                 });
@@ -2226,7 +317,7 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<string>("City")
                         .HasColumnType("text");
 
-                    b.Property<int>("CountryId")
+                    b.Property<int?>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -2263,13 +354,10 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<decimal>("AmountPaid")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.Property<long>("ChequeId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("CreatedBy")
+                    b.Property<int?>("CreatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime");
 
                     b.Property<long>("CustomerId")
@@ -2281,11 +369,8 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool?>("IsDeleted")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("ModeOfPayment")
-                        .HasColumnType("int");
 
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
@@ -2296,15 +381,16 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<int>("OrganizationId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("PaidDate")
+                    b.Property<DateTime>("PaidDate")
                         .HasColumnType("datetime");
+
+                    b.Property<int>("PaymentType")
+                        .HasColumnType("int");
 
                     b.Property<string>("Reference")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ChequeId");
 
                     b.HasIndex("CustomerId");
 
@@ -2319,10 +405,10 @@ namespace T3.S3Ledger.Api.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<int?>("CreatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime");
 
                     b.Property<int?>("DeletedBy")
@@ -2337,7 +423,7 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool?>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
@@ -2360,6 +446,16 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.HasIndex("OrganizationId");
 
                     b.ToTable("Salesman");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            FirstName = "TrueThink",
+                            LastName = "Salesman",
+                            MobileNumber = "0772345001",
+                            OrganizationId = 1
+                        });
                 });
 
             modelBuilder.Entity("T3.S3Ledger.Api.Data.Entities.SystemUser", b =>
@@ -2380,10 +476,10 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("text");
 
-                    b.Property<int>("Role")
+                    b.Property<int?>("Role")
                         .HasColumnType("int");
 
-                    b.Property<int>("RootOrgId")
+                    b.Property<int?>("RootOrgId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
@@ -2402,10 +498,10 @@ namespace T3.S3Ledger.Api.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<int?>("CreatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime");
 
                     b.Property<int?>("DeletedBy")
@@ -2420,7 +516,7 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool?>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
@@ -2438,13 +534,13 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("text");
 
-                    b.Property<int>("Role")
+                    b.Property<int?>("Role")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Verified")
+                    b.Property<bool?>("Verified")
                         .HasColumnType("tinyint(1)");
 
                     b.HasKey("Id");
@@ -2454,47 +550,24 @@ namespace T3.S3Ledger.Api.Data.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("InvoicePaymentReceipt", b =>
-                {
-                    b.HasOne("T3.S3Ledger.Api.Data.Entities.Invoice", null)
-                        .WithMany()
-                        .HasForeignKey("InvoicesSettledId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("T3.S3Ledger.Api.Data.Entities.PaymentReceipt", null)
-                        .WithMany()
-                        .HasForeignKey("PaymentsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("T3.S3Ledger.Api.Data.Entities.Address", b =>
                 {
                     b.HasOne("T3.S3Ledger.Api.Data.Entities.Country", "Country")
                         .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CountryId");
 
-                    b.HasOne("T3.S3Ledger.Api.Data.Entities.Customer", "Customer")
+                    b.HasOne("T3.S3Ledger.Api.Data.Entities.Customer", null)
                         .WithMany("Addresses")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerId");
 
                     b.Navigation("Country");
-
-                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("T3.S3Ledger.Api.Data.Entities.Cheque", b =>
                 {
                     b.HasOne("T3.S3Ledger.Api.Data.Entities.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerId");
 
                     b.HasOne("T3.S3Ledger.Api.Data.Entities.Organization", "Organization")
                         .WithMany()
@@ -2520,8 +593,8 @@ namespace T3.S3Ledger.Api.Data.Migrations
 
             modelBuilder.Entity("T3.S3Ledger.Api.Data.Entities.Invoice", b =>
                 {
-                    b.HasOne("T3.S3Ledger.Api.Data.Entities.Customer", "Customer")
-                        .WithMany()
+                    b.HasOne("T3.S3Ledger.Api.Data.Entities.Customer", null)
+                        .WithMany("Invoices")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -2532,40 +605,22 @@ namespace T3.S3Ledger.Api.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("T3.S3Ledger.Api.Data.Entities.Salesman", "Salesman")
-                        .WithMany()
-                        .HasForeignKey("SalesmanId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Customer");
-
                     b.Navigation("Organization");
-
-                    b.Navigation("Salesman");
                 });
 
             modelBuilder.Entity("T3.S3Ledger.Api.Data.Entities.Organization", b =>
                 {
                     b.HasOne("T3.S3Ledger.Api.Data.Entities.Country", "Country")
                         .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CountryId");
 
                     b.Navigation("Country");
                 });
 
             modelBuilder.Entity("T3.S3Ledger.Api.Data.Entities.PaymentReceipt", b =>
                 {
-                    b.HasOne("T3.S3Ledger.Api.Data.Entities.Cheque", "Cheque")
-                        .WithMany()
-                        .HasForeignKey("ChequeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("T3.S3Ledger.Api.Data.Entities.Customer", "Customer")
-                        .WithMany()
+                    b.HasOne("T3.S3Ledger.Api.Data.Entities.Customer", null)
+                        .WithMany("PaymentReceipts")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -2575,10 +630,6 @@ namespace T3.S3Ledger.Api.Data.Migrations
                         .HasForeignKey("OrganizationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Cheque");
-
-                    b.Navigation("Customer");
 
                     b.Navigation("Organization");
                 });
@@ -2598,9 +649,7 @@ namespace T3.S3Ledger.Api.Data.Migrations
                 {
                     b.HasOne("T3.S3Ledger.Api.Data.Entities.Organization", "Organization")
                         .WithMany()
-                        .HasForeignKey("RootOrgId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RootOrgId");
 
                     b.Navigation("Organization");
                 });
@@ -2619,6 +668,10 @@ namespace T3.S3Ledger.Api.Data.Migrations
             modelBuilder.Entity("T3.S3Ledger.Api.Data.Entities.Customer", b =>
                 {
                     b.Navigation("Addresses");
+
+                    b.Navigation("Invoices");
+
+                    b.Navigation("PaymentReceipts");
                 });
 #pragma warning restore 612, 618
         }

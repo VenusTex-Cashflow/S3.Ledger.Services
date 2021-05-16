@@ -12,7 +12,7 @@ namespace T3.S3Ledger.Api.Data.Repository.Interface
 
         Task<T> GetAsync(int id);
 
-        Task<IEnumerable<T>> GetAllAsync(
+        Task<IQueryable<T>> GetAllAsync(
             Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             string includeProperties = null

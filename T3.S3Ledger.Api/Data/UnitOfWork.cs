@@ -16,7 +16,7 @@ namespace T3.S3Ledger.Api.Data
             Organization = new OrganizationRepository(_dbContext);
             Customer = new CustomerRepository(_dbContext);
             Cheque = new Repository<Cheque>(_dbContext);
-            Invoice = new Repository<Invoice>(_dbContext);
+            Invoice = new InvoiceRepository(_dbContext);
             PaymentReceipt = new Repository<PaymentReceipt>(_dbContext);
             Salesman = new Repository<Salesman>(_dbContext);
             SystemUser = new Repository<SystemUser>(_dbContext);
@@ -27,7 +27,7 @@ namespace T3.S3Ledger.Api.Data
         public IOrganizationRepository Organization { get; private set; }
         public ICustomerRepository Customer { get; private set; }
         public IRepository<Cheque> Cheque { get; private set; }
-        public IRepository<Invoice> Invoice { get; private set; }
+        public IInvoiceRepository Invoice { get; private set; }
         public IRepository<PaymentReceipt> PaymentReceipt { get; private set; }
         public IRepository<Salesman> Salesman { get; private set; }
         public IRepository<SystemUser> SystemUser { get; private set; }

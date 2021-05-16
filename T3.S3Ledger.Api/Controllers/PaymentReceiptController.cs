@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 using T3.S3Ledger.Api.Data.Repository.Interface;
 using T3.S3Ledger.Api.Models;
@@ -35,7 +36,7 @@ namespace T3.S3Ledger.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetPaymentReceipt(long id)
         {
-            var payment = await _unitOfWork.PaymentReceipt.GetFirstOrDefaultAsync(p => p.Id == id, includeProperties: "Customer");
+            var payment = await _unitOfWork.PaymentReceipt.GetFirstOrDefaultAsync(p => p.Id == id);
 
             if (payment == null)
             {
@@ -54,11 +55,25 @@ namespace T3.S3Ledger.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
         public async Task<ActionResult<long>> CreatePaymentReceipt(PaymentReceiptModel paymentReceiptModel)
         {
-            var payment = _mapper.Map<Data.Entities.PaymentReceipt>(paymentReceiptModel);
-            await _unitOfWork.PaymentReceipt.AddAsync(payment);
-            await _unitOfWork.SaveAsync();
+            try
+            {
+                var payment = _mapper.Map<Data.Entities.PaymentReceipt>(paymentReceiptModel);
+                await _unitOfWork.PaymentReceipt.AddAsync(payment);
+                await _unitOfWork.SaveAsync();
+                return CreatedAtAction("CreatePaymentReceipt", payment.Id);
+            }
+            catch (DbUpdateException ex)
+            {
 
-            return CreatedAtAction("CreatePaymentReceipt", payment.Id);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return null;
+
         }
 
 

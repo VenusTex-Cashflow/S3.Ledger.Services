@@ -33,9 +33,10 @@ namespace T3.S3Ledger.Api.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.AddConfiguration(new CountryConfiguration());
             modelBuilder.AddConfiguration(new OrganizationConfiguration());
+            modelBuilder.AddConfiguration(new CountryConfiguration());
             modelBuilder.AddConfiguration(new CustomerConfiguration());
+            modelBuilder.AddConfiguration(new SalesmanConfiguration());
         }
     }
 }

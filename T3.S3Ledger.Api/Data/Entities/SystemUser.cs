@@ -13,9 +13,9 @@ namespace T3.S3Ledger.Api.Data.Entities
         public string LastName { get; set; }
         [EmailAddress]
         public string Email { get; set; }
-        public Role Role { get; set; }
-        public int RootOrgId { get; set; }
+        public Role? Role { get; set; }
+        public int? RootOrgId { get; set; }
         [ForeignKey("RootOrgId")]
-        public Organization Organization { get; set; }
+        public Organization? Organization { get; set; }
     }
 }

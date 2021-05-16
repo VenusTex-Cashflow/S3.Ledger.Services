@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 using T3.S3Ledger.Api.Data.Repository.Interface;
 using T3.S3Ledger.Api.Models;
@@ -31,15 +32,14 @@ namespace T3.S3Ledger.Api.Controllers
             //CustomerQuery query = new CustomerQuery();
 
             //var taskQuery = await _mediator.Send(query);
-            var customers = await _unitOfWork.Customer.GetAllAsync(includeProperties: "Addresses");
+            var customers = await _unitOfWork.Customer.GetAllAsync(includeProperties: "Invoices,PaymentReceipts");
             return Ok(customers);
         }
-
 
         [HttpGet("{id}")]
         public async Task<ActionResult> GetCustomer(long id)
         {
-            var customer = await _unitOfWork.Customer.GetFirstOrDefaultAsync(c => c.Id == id, includeProperties: "Addresses");
+            var customer = await _unitOfWork.Customer.GetFirstOrDefaultAsync(c => c.Id == id, includeProperties: "Invoices,PaymentReceipts");
 
             if (customer == null)
             {
@@ -48,6 +48,24 @@ namespace T3.S3Ledger.Api.Controllers
 
             return Ok(customer);
         }
+
+        //[HttpGet("{customerId}/Invoice")]
+        //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IActionResult))]
+        //[ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(string))]
+        //[ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(string))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
+        //public async Task<ActionResult> GetCustomerInvoice(long customerId)
+        //{
+        //    var invoices = await _unitOfWork.Invoice.GetInvoiceByCustomer(customerId, Enums.InvoiceStatus.Outstanding);
+
+        //    if (invoices == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Ok(invoices);
+        //}
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(long))]
@@ -101,14 +119,35 @@ namespace T3.S3Ledger.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
         public async Task<ActionResult<bool>> DeleteCustomer(long id)
         {
-            var customer = await _unitOfWork.Customer.GetAsync(id);
-            if (customer == null)
+            try
             {
-                return NotFound();
+                var customer = await _unitOfWork.Customer.GetAsync(id);
+                if (customer == null)
+                {
+                    return NotFound();
+                }
+
+                _unitOfWork.Customer.Remove(customer);
+                await _unitOfWork.SaveAsync();
+
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                var result = await CustomerExists(id);
+
+                if (!result)
+                {
+                    return NotFound("No record found");
+                }
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+
             }
 
-            _unitOfWork.Customer.Remove(customer);
-            await _unitOfWork.SaveAsync();
+
 
             return Ok(true);
         }

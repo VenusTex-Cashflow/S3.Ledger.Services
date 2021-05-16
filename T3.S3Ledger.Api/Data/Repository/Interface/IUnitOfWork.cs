@@ -10,7 +10,7 @@ namespace T3.S3Ledger.Api.Data.Repository.Interface
         IOrganizationRepository Organization { get; }
         ICustomerRepository Customer { get; }
         IRepository<Cheque> Cheque { get; }
-        IRepository<Invoice> Invoice { get; }
+        IInvoiceRepository Invoice { get; }
         IRepository<PaymentReceipt> PaymentReceipt { get; }
         IRepository<Salesman> Salesman { get; }
         IRepository<SystemUser> SystemUser { get; }

@@ -29,10 +29,6 @@ namespace T3.S3Ledger.Api.Mapper
                 .ReverseMap();
 
             CreateMap<Invoice, InvoiceModel>()
-                .ForMember(d => d.Salesman, o => o.MapFrom(s => s.Salesman))
-                .ForMember(d => d.Customer, o => o.MapFrom(s => s.Customer))
-                .ForMember(d => d.CustomerId, o => o.MapFrom(s => s.CustomerId))
-                .ForMember(d => d.SalesmanId, o => o.MapFrom(s => s.SalesmanId))
                 .ReverseMap();
 
             CreateMap<PaymentReceipt, PaymentReceiptModel>()

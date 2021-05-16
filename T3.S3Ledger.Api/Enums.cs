@@ -5,9 +5,16 @@
         public enum CustomerType
         {
             None,
-            Business,
-            Individual
+            BillToBill,
+            Normal
 
+        }
+
+        public enum PaymentType
+        {
+            None,
+            BillToBill,
+            Normal
         }
 
         public enum Role

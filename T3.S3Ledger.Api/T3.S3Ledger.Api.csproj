@@ -9,9 +9,13 @@
 
   <ItemGroup>
     <Compile Remove="Data\Entities\InvoicePaymentReceipt.cs" />
+    <Compile Remove="Data\Migrations\FullCountryList_InitializingLedgerData.cs" />
+    <Compile Remove="Data\Migrations\FullCountryList_InitializingLedgerData.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Handlers\" />
     <Folder Include="Validator\" />
   </ItemGroup>
 

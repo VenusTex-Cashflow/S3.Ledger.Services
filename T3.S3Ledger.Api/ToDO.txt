@@ -1,0 +1,45 @@
+﻿Country list to be populated in seed - done
+
+Root Organization creation in seed - done
+
+System admin user creation in seed - done
+
+Controller creation and finalize
+
+System admin user logged in and create an vendor organizaiton
+
+Create vendor admin user this enables the user to log in to organization
+
+Two DbContext for transactionDb and SystemDb
+
+Add Fluent validation
+
+Add AutoMapper
+
+Add OAuth Token Security
+
+Identity server implementation
+
+Swagger integrate authentication
+
+Serilog for logging
+
+user management, customer provisioning
+
+Exception handling
+
+private nuget packages
+
+deployment environment
+
+frontend implementation (blazor, react, angular, flutter)
+
+user management db - NoSql
+
+dashboard
+
+error handling for migration
+
+
+
+

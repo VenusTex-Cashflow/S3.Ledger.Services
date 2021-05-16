@@ -6,9 +6,10 @@ namespace T3.S3Ledger.Api.Data.Entities
 {
     public partial class Customer : BaseOrgEntity
     {
-        public CustomerType CustomerType { get; set; }
+        public CustomerType? CustomerType { get; set; }
+        [Required]
         [MaxLength(50)]
-        public string FirstName { get; set; }
+        public string CustomerName { get; set; }
         [MaxLength(50)]
         public string MiddleName { get; set; }
         [MaxLength(50)]
@@ -17,8 +18,6 @@ namespace T3.S3Ledger.Api.Data.Entities
         public string CompanyName { get; set; }
         [MaxLength(20)]
         public string CompanyCode { get; set; }
-        public virtual ICollection<Address> Addresses { get; set; }
-        [Required]
         [MaxLength(10)]
         public string MobileNumber { get; set; }
         [MaxLength(10)]
@@ -27,8 +26,14 @@ namespace T3.S3Ledger.Api.Data.Entities
         public string OfficeNumber { get; set; }
         [EmailAddress]
         public string Email { get; set; }
-        public BusinessType BusinessType { get; set; }
-        public decimal TotalOutstandingAmount { get; set; }
+        public BusinessType? BusinessType { get; set; }
+        public decimal? TotalOutstandingAmount { get; set; }
+        public decimal? TotalInvoicedAmount { get; set; }
+        public decimal? TotalAmountSettled { get; set; }
+        public virtual ICollection<Address>? Addresses { get; set; }
+        public virtual ICollection<Invoice>? Invoices { get; set; }
+        public virtual ICollection<PaymentReceipt>? PaymentReceipts { get; set; }
+
     }
 
 }

@@ -12,8 +12,8 @@ namespace T3.S3Ledger.Api.Data.Entities
         public string Address2 { get; set; }
         public string Address3 { get; set; }
         public string City { get; set; }
-        public int CountryId { get; set; }
+        public int? CountryId { get; set; }
         [ForeignKey("CountryId")]
-        public Country Country { get; set; }
+        public Country? Country { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace T3.S3Ledger.Api.RegisterServices
         {
             services.AddTransient<IOrganizationRepository, OrganizationRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             services.AddScoped<IDbInitializer, DbInitializer>();
             services.AddDbContext<AppDbContext>(option => option.UseMySQL(configuration.GetConnectionString("Db")));
         }

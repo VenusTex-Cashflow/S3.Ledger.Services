@@ -10,10 +10,8 @@ namespace T3.S3Ledger.Api.Models
         public string Address3 { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public int CountryId { get; set; }
-        public CountryModel Country { get; set; }
-        public AddressType AddressType { get; set; }
-        public long CustomerId { get; set; }
-        public virtual CustomerModel Customer { get; set; }
+        public int? CountryId { get; set; }
+        public AddressType? AddressType { get; set; }
+        public int? CustomerId { get; set; }
     }
 }

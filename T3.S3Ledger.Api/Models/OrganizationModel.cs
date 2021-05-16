@@ -10,7 +10,7 @@
         public string Address2 { get; set; }
         public string Address3 { get; set; }
         public string City { get; set; }
-        public int CountryId { get; set; }
-        public CountryModel Country { get; set; }
+        public int? CountryId { get; set; }
+        public CountryModel? Country { get; set; }
     }
 }

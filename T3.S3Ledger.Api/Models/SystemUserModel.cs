@@ -10,8 +10,8 @@ namespace T3.S3Ledger.Api.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public Role Role { get; set; }
+        public Role? Role { get; set; }
         public int RootOrgId { get; set; }
-        public OrganizationModel Organization { get; set; }
+        public OrganizationModel? Organization { get; set; }
     }
 }

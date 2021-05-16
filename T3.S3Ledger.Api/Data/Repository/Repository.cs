@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -33,7 +32,32 @@ namespace T3.S3Ledger.Api.Data.Repository
             return await dbSet.FindAsync(id);
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null)
+        //public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null)
+        //{
+        //    IQueryable<T> query = dbSet;
+
+        //    if (filter != null)
+        //    {
+        //        query = query.Where(filter);
+        //    }
+
+        //    if (includeProperties != null)
+        //    {
+        //        foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+        //        {
+        //            query = query.Include(includeProp);
+        //        }
+        //    }
+
+        //    if (orderBy != null)
+        //    {
+        //        return await orderBy(query).ToListAsync();
+        //    }
+
+        //    return await query.ToListAsync();
+        //}
+
+        public async Task<IQueryable<T>> GetAllAsync(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null)
         {
             IQueryable<T> query = dbSet;
 
@@ -52,10 +76,10 @@ namespace T3.S3Ledger.Api.Data.Repository
 
             if (orderBy != null)
             {
-                return await orderBy(query).ToListAsync();
+                return orderBy(query);
             }
 
-            return await query.ToListAsync();
+            return query;
         }
 
         public async Task<T> GetFirstOrDefaultAsync(Expression<System.Func<T, bool>> filter = null, string includeProperties = null)

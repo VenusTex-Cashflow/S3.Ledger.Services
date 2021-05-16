@@ -12,11 +12,11 @@ namespace T3.S3Ledger.Api.Data.Entities
         public DateTime? PDCDate { get; set; }
         public ChequeType ChequeType { get; set; }
         public string ChequeNumber { get; set; }
-        public decimal Amount { get; set; }
-        public long CustomerId { get; set; }
+        public decimal? Amount { get; set; }
+        public long? CustomerId { get; set; }
         [ForeignKey("CustomerId")]
-        public Customer Customer { get; set; }
-        public bool IsRealized { get; set; }
-        public bool IsBadCheque { get; set; }
+        public Customer? Customer { get; set; }
+        public bool? IsRealized { get; set; }
+        public bool? IsBadCheque { get; set; }
     }
 }
