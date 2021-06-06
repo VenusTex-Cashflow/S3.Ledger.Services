@@ -9,7 +9,7 @@ namespace T3.S3Ledger.Api.Data.Entities
         public decimal Amount { get; set; }
         public long CustomerId { get; set; }
         //[ForeignKey("CustomerId")]
-        //public Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; }
         //public long SalesmanId { get; set; }
         //[ForeignKey("SalesmanId")]
         //public Salesman Salesman { get; set; }

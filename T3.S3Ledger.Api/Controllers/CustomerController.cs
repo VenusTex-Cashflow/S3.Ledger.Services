@@ -25,14 +25,22 @@ namespace T3.S3Ledger.Api.Controllers
             _mapper = mapper;
         }
 
-
         [HttpGet]
+        //[Produces("application/json")]
         public async Task<IActionResult> GetCustomers()
         {
             //CustomerQuery query = new CustomerQuery();
-
             //var taskQuery = await _mediator.Send(query);
-            var customers = await _unitOfWork.Customer.GetAllAsync(includeProperties: "Invoices,PaymentReceipts");
+            var customers = await _unitOfWork.Customer.GetAllAsync();
+            return Ok(customers);
+        }
+
+        [HttpGet("include")]
+        public async Task<IActionResult> GetCustomersWithBillsPayments()
+        {
+            //CustomerQuery query = new CustomerQuery();
+            //var taskQuery = await _mediator.Send(query);
+            var customers = await _unitOfWork.Customer.GetAllAsync(includeProperties: "Invoices,PaymentReceipts", noTracking: true);
             return Ok(customers);
         }
 

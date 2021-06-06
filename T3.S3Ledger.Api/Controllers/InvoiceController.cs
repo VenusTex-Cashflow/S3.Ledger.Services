@@ -29,7 +29,8 @@ namespace T3.S3Ledger.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetInvoices()
         {
-            var invoices = await _unitOfWork.Invoice.GetAllAsync();
+            var invoices = await _unitOfWork.Invoice.GetAllAsync(includeProperties: "Customer");
+
             return Ok(invoices);
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -57,7 +58,7 @@ namespace T3.S3Ledger.Api.Data.Repository
         //    return await query.ToListAsync();
         //}
 
-        public async Task<IQueryable<T>> GetAllAsync(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null)
+        public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null, bool noTracking = false)
         {
             IQueryable<T> query = dbSet;
 
@@ -78,8 +79,9 @@ namespace T3.S3Ledger.Api.Data.Repository
             {
                 return orderBy(query);
             }
+            if (noTracking) query.AsNoTracking();
 
-            return query;
+            return await query.ToListAsync();
         }
 
         public async Task<T> GetFirstOrDefaultAsync(Expression<System.Func<T, bool>> filter = null, string includeProperties = null)

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using System;
 using System.Linq;
 using T3.S3Ledger.Api.Data;
@@ -36,18 +37,35 @@ namespace T3.S3Ledger.Api
 
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(builder => builder.WithOrigins("http://www.venustex.com")
+                options.AddPolicy("CorsPolicy", builder => builder.WithOrigins("http://www.venustex.com")
                 .AllowAnyOrigin()
                 .AllowAnyHeader()
                 .AllowAnyMethod());
             });
 
-            //services.AddControllers();
+            //services.AddMvc()
+            //    .AddJsonOptions(o =>
+            //    {
+            //        o.JsonSerializerOptions
+            //          .ReferenceHandler = ReferenceHandler.Preserve;
+            //    });
+
 
             registerServices.ForEach(service => service.RegisterServices(services, _configuration));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             //services.AddApiVersioning();
             services.AddHealthChecks();
+
+            //services.AddMvcCore().AddJsonOptions(o =>
+            //    o.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve
+            //    );
+
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
+
+            //services.AddMvcCore();
 
             services.AddSwaggerGen(c =>
             {
@@ -55,11 +73,10 @@ namespace T3.S3Ledger.Api
                 {
                     Title = "S3 Ledger Service APIs",
                     Version = "v1",
-                    Description = "Endpoints to manage Ledger service payments"
+                    Description = "Endpoints to manage Ledger service entities"
                 });
             });
 
-            //services.AddCors();
 
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddMediatR(typeof(Startup));
@@ -92,9 +109,10 @@ namespace T3.S3Ledger.Api
             //            policy.WithOrigins("http://localhost:8081", "https://localhost:44359")
             //            .AllowAnyMethod()
             //            .WithHeaders(HeaderNames.ContentType));
-            app.UseCors();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseEndpoints(endpoints =>
             {

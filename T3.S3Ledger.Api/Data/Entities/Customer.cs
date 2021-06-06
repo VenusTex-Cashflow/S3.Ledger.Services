@@ -30,9 +30,9 @@ namespace T3.S3Ledger.Api.Data.Entities
         public decimal? TotalOutstandingAmount { get; set; }
         public decimal? TotalInvoicedAmount { get; set; }
         public decimal? TotalAmountSettled { get; set; }
-        public virtual ICollection<Address>? Addresses { get; set; }
-        public virtual ICollection<Invoice>? Invoices { get; set; }
-        public virtual ICollection<PaymentReceipt>? PaymentReceipts { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; } = null;
+        public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<PaymentReceipt> PaymentReceipts { get; set; }
 
     }
 

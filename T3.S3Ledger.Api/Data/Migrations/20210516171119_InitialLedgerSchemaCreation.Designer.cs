@@ -9,7 +9,7 @@ using T3.S3Ledger.Api.Data;
 namespace T3.S3Ledger.Api.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210512235518_InitialLedgerSchemaCreation")]
+    [Migration("20210516171119_InitialLedgerSchemaCreation")]
     partial class InitialLedgerSchemaCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
